@@ -1,0 +1,8 @@
+prefix=/home/zejian/catkin_ws/devel
+
+Name: pedsim_point_clouds
+Description: Description of pedsim_point_clouds
+Version: 0.1.1
+Cflags: 
+Libs: -L/home/zejian/catkin_ws/devel/lib 
+Requires: roscpp sensor_msgs nav_msgs geometry_msgs spencer_tracking_msgs tf

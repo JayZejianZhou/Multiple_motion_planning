@@ -1,0 +1,19 @@
+(cl:defpackage spencer_mapping_msgs-msg
+  (:use )
+  (:export
+   "<LABELGRID>"
+   "LABELGRID"
+   "<TOPOLOGICALMAP>"
+   "TOPOLOGICALMAP"
+   "<TOPOLOGICALMAPEDGE>"
+   "TOPOLOGICALMAPEDGE"
+   "<ANNOTATIONS>"
+   "ANNOTATIONS"
+   "<ANNOTATION>"
+   "ANNOTATION"
+   "<TOPOLOGICALMAPNODE>"
+   "TOPOLOGICALMAPNODE"
+   "<LABEL>"
+   "LABEL"
+  ))
+

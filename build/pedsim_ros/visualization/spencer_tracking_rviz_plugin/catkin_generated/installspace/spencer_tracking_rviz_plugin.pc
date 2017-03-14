@@ -1,0 +1,8 @@
+prefix=/home/zejian/catkin_ws/install
+
+Name: spencer_tracking_rviz_plugin
+Description: Description of spencer_tracking_rviz_plugin
+Version: 0.2.0
+Cflags: 
+Libs: -L/home/zejian/catkin_ws/install/lib 
+Requires: 

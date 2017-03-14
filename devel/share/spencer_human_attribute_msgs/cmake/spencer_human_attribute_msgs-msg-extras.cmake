@@ -1,0 +1,2 @@
+set(spencer_human_attribute_msgs_MESSAGE_FILES "/home/zejian/catkin_ws/src/pedsim_ros/visualization/spencer_messages/perception/spencer_human_attribute_msgs/msg/CategoricalAttribute.msg;/home/zejian/catkin_ws/src/pedsim_ros/visualization/spencer_messages/perception/spencer_human_attribute_msgs/msg/ScalarAttribute.msg;/home/zejian/catkin_ws/src/pedsim_ros/visualization/spencer_messages/perception/spencer_human_attribute_msgs/msg/HumanAttributes.msg")
+set(spencer_human_attribute_msgs_SERVICE_FILES "")

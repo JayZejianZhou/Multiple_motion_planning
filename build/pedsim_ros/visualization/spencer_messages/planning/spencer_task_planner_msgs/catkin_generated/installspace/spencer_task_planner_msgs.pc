@@ -1,0 +1,8 @@
+prefix=/home/zejian/catkin_ws/install
+
+Name: spencer_task_planner_msgs
+Description: Description of spencer_task_planner_msgs
+Version: 0.0.0
+Cflags: -I/home/zejian/catkin_ws/install/include
+Libs: -L/home/zejian/catkin_ws/install/lib 
+Requires: std_msgs geometry_msgs

@@ -1,0 +1,8 @@
+prefix=/home/zejian/catkin_ws/devel
+
+Name: spencer_nav_msgs
+Description: Description of spencer_nav_msgs
+Version: 0.0.1
+Cflags: -I/home/zejian/catkin_ws/devel/include
+Libs: -L/home/zejian/catkin_ws/devel/lib 
+Requires: std_msgs geometry_msgs nav_msgs spencer_tracking_msgs spencer_mapping_msgs

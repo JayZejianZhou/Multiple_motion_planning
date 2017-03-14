@@ -1,0 +1,8 @@
+prefix=/home/zejian/catkin_ws/install
+
+Name: animated_marker_rviz_plugin
+Description: Description of animated_marker_rviz_plugin
+Version: 0.1.0
+Cflags: 
+Libs: -L/home/zejian/catkin_ws/install/lib 
+Requires: 

@@ -1,0 +1,15 @@
+(cl:defpackage spencer_task_planner_msgs-srv
+  (:use )
+  (:export
+   "GOHOME"
+   "<GOHOME-REQUEST>"
+   "GOHOME-REQUEST"
+   "<GOHOME-RESPONSE>"
+   "GOHOME-RESPONSE"
+   "STARTGUIDANCE"
+   "<STARTGUIDANCE-REQUEST>"
+   "STARTGUIDANCE-REQUEST"
+   "<STARTGUIDANCE-RESPONSE>"
+   "STARTGUIDANCE-RESPONSE"
+  ))
+

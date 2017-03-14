@@ -1,0 +1,6 @@
+set(animated_marker_tutorial_SETUP_PY_VERSION "0.0.1")
+set(animated_marker_tutorial_SETUP_PY_SCRIPTS "")
+set(animated_marker_tutorial_SETUP_PY_PACKAGES "animated_marker_tutorial")
+set(animated_marker_tutorial_SETUP_PY_PACKAGE_DIRS "src/animated_marker_tutorial")
+set(animated_marker_tutorial_SETUP_PY_MODULES "")
+set(animated_marker_tutorial_SETUP_PY_MODULE_DIRS "")

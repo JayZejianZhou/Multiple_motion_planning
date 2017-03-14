@@ -1,0 +1,2 @@
+set(situation_assessment_msgs_MESSAGE_FILES "msg/Fact.msg;msg/FactList.msg;msg/NamedPose.msg;msg/NamedPoseList.msg;msg/Group.msg;msg/GroupList.msg;msg/HumanIntention.msg;msg/HumanIntentionList.msg;msg/AreaList.msg;msg/Graph.msg;msg/Node.msg;msg/Edge.msg;msg/Property.msg")
+set(situation_assessment_msgs_SERVICE_FILES "srv/AddArea.srv;srv/NameRequest.srv;srv/QueryDatabase.srv;srv/DatabaseRequest.srv;srv/GetMap.srv;srv/GetLocations.srv;srv/EmptyRequest.srv;srv/SwitchOrientation.srv")

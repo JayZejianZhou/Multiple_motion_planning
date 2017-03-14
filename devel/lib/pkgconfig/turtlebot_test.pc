@@ -1,0 +1,8 @@
+prefix=/home/zejian/catkin_ws/devel
+
+Name: turtlebot_test
+Description: Description of turtlebot_test
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/zejian/catkin_ws/devel/lib 
+Requires: 

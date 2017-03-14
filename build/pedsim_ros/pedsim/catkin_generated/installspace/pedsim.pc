@@ -1,0 +1,8 @@
+prefix=/home/zejian/catkin_ws/install
+
+Name: pedsim
+Description: Description of pedsim
+Version: 0.0.1
+Cflags: -I/home/zejian/catkin_ws/install/include
+Libs: -L/home/zejian/catkin_ws/install/lib -lpedsim
+Requires: roscpp

@@ -1,0 +1,8 @@
+prefix=/home/zejian/catkin_ws/devel
+
+Name: situation_assessment_msgs
+Description: Description of situation_assessment_msgs
+Version: 0.0.0
+Cflags: -I/home/zejian/catkin_ws/devel/include
+Libs: -L/home/zejian/catkin_ws/devel/lib 
+Requires: roscpp rospy std_msgs message_generation message_runtime geometry_msgs

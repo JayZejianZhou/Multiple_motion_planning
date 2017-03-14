@@ -1,0 +1,8 @@
+prefix=/home/zejian/catkin_ws/install
+
+Name: pedsim_msgs
+Description: Description of pedsim_msgs
+Version: 0.0.2
+Cflags: -I/home/zejian/catkin_ws/install/include
+Libs: -L/home/zejian/catkin_ws/install/lib 
+Requires: roscpp rospy message_runtime std_msgs geometry_msgs sensor_msgs nav_msgs

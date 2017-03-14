@@ -1,0 +1,8 @@
+prefix=/home/zejian/catkin_ws/devel
+
+Name: animated_marker_tutorial
+Description: Description of animated_marker_tutorial
+Version: 0.0.1
+Cflags: 
+Libs: -L/home/zejian/catkin_ws/devel/lib 
+Requires: 

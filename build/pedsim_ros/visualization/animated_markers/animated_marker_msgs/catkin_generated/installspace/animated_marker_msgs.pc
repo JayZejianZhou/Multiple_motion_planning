@@ -1,0 +1,8 @@
+prefix=/home/zejian/catkin_ws/install
+
+Name: animated_marker_msgs
+Description: Description of animated_marker_msgs
+Version: 0.1.0
+Cflags: -I/home/zejian/catkin_ws/install/include
+Libs: -L/home/zejian/catkin_ws/install/lib 
+Requires: geometry_msgs message_runtime std_msgs
