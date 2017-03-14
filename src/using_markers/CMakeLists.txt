@@ -198,5 +198,7 @@ include_directories(
 # catkin_add_nosetests(test)
 
 
-add_executable(basic_shapes src/basic_shapes.cpp)
-target_link_libraries(basic_shapes ${catkin_LIBRARIES})
+#add_executable(basic_shapes src/basic_shapes.cpp)
+#target_link_libraries(basic_shapes ${catkin_LIBRARIES})
+add_executable(points_and_lines src/points_and_lines.cpp)
+target_link_libraries(points_and_lines ${catkin_LIBRARIES})

@@ -150,20 +150,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-using_markers/CMakeFiles/basic_shapes.dir/rule:
-	cd /home/zejian/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 using_markers/CMakeFiles/basic_shapes.dir/rule
-.PHONY : using_markers/CMakeFiles/basic_shapes.dir/rule
-
-# Convenience name for target.
-basic_shapes: using_markers/CMakeFiles/basic_shapes.dir/rule
-.PHONY : basic_shapes
-
-# fast build rule for target.
-basic_shapes/fast:
-	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/basic_shapes.dir/build.make using_markers/CMakeFiles/basic_shapes.dir/build
-.PHONY : basic_shapes/fast
-
-# Convenience name for target.
 using_markers/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
 	cd /home/zejian/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 using_markers/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
 .PHONY : using_markers/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
@@ -204,6 +190,20 @@ geometry_msgs_generate_messages_py: using_markers/CMakeFiles/geometry_msgs_gener
 geometry_msgs_generate_messages_py/fast:
 	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make using_markers/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
 .PHONY : geometry_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+using_markers/CMakeFiles/points_and_lines.dir/rule:
+	cd /home/zejian/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 using_markers/CMakeFiles/points_and_lines.dir/rule
+.PHONY : using_markers/CMakeFiles/points_and_lines.dir/rule
+
+# Convenience name for target.
+points_and_lines: using_markers/CMakeFiles/points_and_lines.dir/rule
+.PHONY : points_and_lines
+
+# fast build rule for target.
+points_and_lines/fast:
+	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/points_and_lines.dir/build.make using_markers/CMakeFiles/points_and_lines.dir/build
+.PHONY : points_and_lines/fast
 
 # Convenience name for target.
 using_markers/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
@@ -373,29 +373,29 @@ visualization_msgs_generate_messages_py/fast:
 	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/visualization_msgs_generate_messages_py.dir/build.make using_markers/CMakeFiles/visualization_msgs_generate_messages_py.dir/build
 .PHONY : visualization_msgs_generate_messages_py/fast
 
-src/basic_shapes.o: src/basic_shapes.cpp.o
-.PHONY : src/basic_shapes.o
+src/points_and_lines.o: src/points_and_lines.cpp.o
+.PHONY : src/points_and_lines.o
 
 # target to build an object file
-src/basic_shapes.cpp.o:
-	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/basic_shapes.dir/build.make using_markers/CMakeFiles/basic_shapes.dir/src/basic_shapes.cpp.o
-.PHONY : src/basic_shapes.cpp.o
+src/points_and_lines.cpp.o:
+	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/points_and_lines.dir/build.make using_markers/CMakeFiles/points_and_lines.dir/src/points_and_lines.cpp.o
+.PHONY : src/points_and_lines.cpp.o
 
-src/basic_shapes.i: src/basic_shapes.cpp.i
-.PHONY : src/basic_shapes.i
+src/points_and_lines.i: src/points_and_lines.cpp.i
+.PHONY : src/points_and_lines.i
 
 # target to preprocess a source file
-src/basic_shapes.cpp.i:
-	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/basic_shapes.dir/build.make using_markers/CMakeFiles/basic_shapes.dir/src/basic_shapes.cpp.i
-.PHONY : src/basic_shapes.cpp.i
+src/points_and_lines.cpp.i:
+	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/points_and_lines.dir/build.make using_markers/CMakeFiles/points_and_lines.dir/src/points_and_lines.cpp.i
+.PHONY : src/points_and_lines.cpp.i
 
-src/basic_shapes.s: src/basic_shapes.cpp.s
-.PHONY : src/basic_shapes.s
+src/points_and_lines.s: src/points_and_lines.cpp.s
+.PHONY : src/points_and_lines.s
 
 # target to generate assembly for a file
-src/basic_shapes.cpp.s:
-	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/basic_shapes.dir/build.make using_markers/CMakeFiles/basic_shapes.dir/src/basic_shapes.cpp.s
-.PHONY : src/basic_shapes.cpp.s
+src/points_and_lines.cpp.s:
+	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/points_and_lines.dir/build.make using_markers/CMakeFiles/points_and_lines.dir/src/points_and_lines.cpp.s
+.PHONY : src/points_and_lines.cpp.s
 
 # Help Target
 help:
@@ -403,7 +403,6 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... basic_shapes"
 	@echo "... edit_cache"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_lisp"
@@ -412,6 +411,7 @@ help:
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... list_install_components"
+	@echo "... points_and_lines"
 	@echo "... rebuild_cache"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_lisp"
@@ -426,9 +426,9 @@ help:
 	@echo "... visualization_msgs_generate_messages_cpp"
 	@echo "... visualization_msgs_generate_messages_lisp"
 	@echo "... visualization_msgs_generate_messages_py"
-	@echo "... src/basic_shapes.o"
-	@echo "... src/basic_shapes.i"
-	@echo "... src/basic_shapes.s"
+	@echo "... src/points_and_lines.o"
+	@echo "... src/points_and_lines.i"
+	@echo "... src/points_and_lines.s"
 .PHONY : help
 
 
