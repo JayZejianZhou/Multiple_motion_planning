@@ -241,6 +241,19 @@ gtest_main/fast:
 .PHONY : gtest_main/fast
 
 #=============================================================================
+# Target rules for targets named cooperating_simulator
+
+# Build rule for target.
+cooperating_simulator: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cooperating_simulator
+.PHONY : cooperating_simulator
+
+# fast build rule for target.
+cooperating_simulator/fast:
+	$(MAKE) -f using_markers/CMakeFiles/cooperating_simulator.dir/build.make using_markers/CMakeFiles/cooperating_simulator.dir/build
+.PHONY : cooperating_simulator/fast
+
+#=============================================================================
 # Target rules for targets named geometry_msgs_generate_messages_cpp
 
 # Build rule for target.
@@ -278,19 +291,6 @@ geometry_msgs_generate_messages_py: cmake_check_build_system
 geometry_msgs_generate_messages_py/fast:
 	$(MAKE) -f using_markers/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make using_markers/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
 .PHONY : geometry_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named points_and_lines
-
-# Build rule for target.
-points_and_lines: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 points_and_lines
-.PHONY : points_and_lines
-
-# fast build rule for target.
-points_and_lines/fast:
-	$(MAKE) -f using_markers/CMakeFiles/points_and_lines.dir/build.make using_markers/CMakeFiles/points_and_lines.dir/build
-.PHONY : points_and_lines/fast
 
 #=============================================================================
 # Target rules for targets named roscpp_generate_messages_cpp
@@ -468,10 +468,10 @@ help:
 	@echo "... tests"
 	@echo "... gtest"
 	@echo "... gtest_main"
+	@echo "... cooperating_simulator"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_lisp"
 	@echo "... geometry_msgs_generate_messages_py"
-	@echo "... points_and_lines"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... roscpp_generate_messages_py"

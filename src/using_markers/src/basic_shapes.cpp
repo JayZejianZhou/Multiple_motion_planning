@@ -26,7 +26,9 @@ int main(int argc,char **argv){
     //Set the marker action. Options are ADD, DELETE, DELETEALL(Indigo)
     marker.action =visualization_msgs::Marker::ADD;
 
-    //Set the pose to of the marker. This is a full 6DOF opse relative to the frame/time specified in the header
+    //Set the pose to of the marker. This is a full 6DOF opse relative to the frame
+
+    //time specified in the header
     marker.pose.position.x=0;
     marker.pose.position.y=0;
     marker.pose.position.z = 0;
