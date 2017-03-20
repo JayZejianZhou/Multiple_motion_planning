@@ -150,20 +150,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-using_markers/CMakeFiles/cooperating_simulator.dir/rule:
-	cd /home/zejian/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 using_markers/CMakeFiles/cooperating_simulator.dir/rule
-.PHONY : using_markers/CMakeFiles/cooperating_simulator.dir/rule
-
-# Convenience name for target.
-cooperating_simulator: using_markers/CMakeFiles/cooperating_simulator.dir/rule
-.PHONY : cooperating_simulator
-
-# fast build rule for target.
-cooperating_simulator/fast:
-	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/cooperating_simulator.dir/build.make using_markers/CMakeFiles/cooperating_simulator.dir/build
-.PHONY : cooperating_simulator/fast
-
-# Convenience name for target.
 using_markers/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
 	cd /home/zejian/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 using_markers/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
 .PHONY : using_markers/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
@@ -204,6 +190,20 @@ geometry_msgs_generate_messages_py: using_markers/CMakeFiles/geometry_msgs_gener
 geometry_msgs_generate_messages_py/fast:
 	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make using_markers/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
 .PHONY : geometry_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+using_markers/CMakeFiles/multi_obstacle_3.dir/rule:
+	cd /home/zejian/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 using_markers/CMakeFiles/multi_obstacle_3.dir/rule
+.PHONY : using_markers/CMakeFiles/multi_obstacle_3.dir/rule
+
+# Convenience name for target.
+multi_obstacle_3: using_markers/CMakeFiles/multi_obstacle_3.dir/rule
+.PHONY : multi_obstacle_3
+
+# fast build rule for target.
+multi_obstacle_3/fast:
+	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/multi_obstacle_3.dir/build.make using_markers/CMakeFiles/multi_obstacle_3.dir/build
+.PHONY : multi_obstacle_3/fast
 
 # Convenience name for target.
 using_markers/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
@@ -373,29 +373,29 @@ visualization_msgs_generate_messages_py/fast:
 	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/visualization_msgs_generate_messages_py.dir/build.make using_markers/CMakeFiles/visualization_msgs_generate_messages_py.dir/build
 .PHONY : visualization_msgs_generate_messages_py/fast
 
-src/cooperating_simulator.o: src/cooperating_simulator.cpp.o
-.PHONY : src/cooperating_simulator.o
+src/multi_obstacle_3.o: src/multi_obstacle_3.cpp.o
+.PHONY : src/multi_obstacle_3.o
 
 # target to build an object file
-src/cooperating_simulator.cpp.o:
-	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/cooperating_simulator.dir/build.make using_markers/CMakeFiles/cooperating_simulator.dir/src/cooperating_simulator.cpp.o
-.PHONY : src/cooperating_simulator.cpp.o
+src/multi_obstacle_3.cpp.o:
+	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/multi_obstacle_3.dir/build.make using_markers/CMakeFiles/multi_obstacle_3.dir/src/multi_obstacle_3.cpp.o
+.PHONY : src/multi_obstacle_3.cpp.o
 
-src/cooperating_simulator.i: src/cooperating_simulator.cpp.i
-.PHONY : src/cooperating_simulator.i
+src/multi_obstacle_3.i: src/multi_obstacle_3.cpp.i
+.PHONY : src/multi_obstacle_3.i
 
 # target to preprocess a source file
-src/cooperating_simulator.cpp.i:
-	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/cooperating_simulator.dir/build.make using_markers/CMakeFiles/cooperating_simulator.dir/src/cooperating_simulator.cpp.i
-.PHONY : src/cooperating_simulator.cpp.i
+src/multi_obstacle_3.cpp.i:
+	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/multi_obstacle_3.dir/build.make using_markers/CMakeFiles/multi_obstacle_3.dir/src/multi_obstacle_3.cpp.i
+.PHONY : src/multi_obstacle_3.cpp.i
 
-src/cooperating_simulator.s: src/cooperating_simulator.cpp.s
-.PHONY : src/cooperating_simulator.s
+src/multi_obstacle_3.s: src/multi_obstacle_3.cpp.s
+.PHONY : src/multi_obstacle_3.s
 
 # target to generate assembly for a file
-src/cooperating_simulator.cpp.s:
-	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/cooperating_simulator.dir/build.make using_markers/CMakeFiles/cooperating_simulator.dir/src/cooperating_simulator.cpp.s
-.PHONY : src/cooperating_simulator.cpp.s
+src/multi_obstacle_3.cpp.s:
+	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/multi_obstacle_3.dir/build.make using_markers/CMakeFiles/multi_obstacle_3.dir/src/multi_obstacle_3.cpp.s
+.PHONY : src/multi_obstacle_3.cpp.s
 
 # Help Target
 help:
@@ -403,7 +403,6 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... cooperating_simulator"
 	@echo "... edit_cache"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_lisp"
@@ -412,6 +411,7 @@ help:
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... list_install_components"
+	@echo "... multi_obstacle_3"
 	@echo "... rebuild_cache"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_lisp"
@@ -426,9 +426,9 @@ help:
 	@echo "... visualization_msgs_generate_messages_cpp"
 	@echo "... visualization_msgs_generate_messages_lisp"
 	@echo "... visualization_msgs_generate_messages_py"
-	@echo "... src/cooperating_simulator.o"
-	@echo "... src/cooperating_simulator.i"
-	@echo "... src/cooperating_simulator.s"
+	@echo "... src/multi_obstacle_3.o"
+	@echo "... src/multi_obstacle_3.i"
+	@echo "... src/multi_obstacle_3.s"
 .PHONY : help
 
 

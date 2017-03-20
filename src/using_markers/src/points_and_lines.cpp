@@ -27,7 +27,7 @@ int main(int argc,char **argv){
     line_strip.type=visualization_msgs::Marker::LINE_STRIP;
     line_list.type=visualization_msgs::Marker::LINE_LIST;
 
-    //POINTS markers use x and y scale for width/height respectively
+    //POINTS markers use x and y s.cale for width/height respectively
     points.scale.x=0.2;
     points.scale.y=0.2;
 

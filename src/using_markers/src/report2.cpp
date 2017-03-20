@@ -9,7 +9,9 @@
 #include <visualization_msgs/Marker.h>
 #include <iostream>
 
-visualization_msgs::Marker jay,stella, jay_goal, stella_goal;
+visualization_msgs::Marker obstacle1,jay,stella, jay_goal, stella_goal;
+visualization_msgs::Marker jay_path, stella_path;
+
 enum State{NEW,OPEN,CLOSE};//state of every nood
 //enum Dirction{NORTH,NORTH_EAST,EAST,EAST_SOUTH,SOUTH,SOUTH_WEST,WEST,WEST_NORTH};
 
@@ -133,7 +135,7 @@ public:
     int goal_y;
     int start_x;
     int start_y;
-    Node  nodes[10][10];
+    Node  nodes[21][21];
 public:
     //Map constructor
     //Map(){}//empty instance is not allowed
@@ -279,7 +281,7 @@ public:
 
 
 
-    void find_path(){
+    void find_path(int f_start_x, int f_start_y){
         //1st step: put goal in open_list
         open_list.insert(&nodes[goal_x][goal_y],0);
         //2nd step: put his neighbours in open_list
@@ -311,7 +313,7 @@ public:
             nodes[goal_x][goal_y+1].set_k(10);
         open_list.sort();
         while(true){
-            if(process_state()==-1 || nodes[start_x][start_y].get_state()==CLOSE)
+            if(process_state()==-1 || nodes[f_start_x][f_start_y].get_state()==CLOSE)
                 break;
         }
         //find_path--------------------------------------
@@ -326,6 +328,7 @@ public:
       nodes[x][y].set_k(99999);
     }
 };
+
 void map_init(){
   //make a simulated robot, jay_goal point, stella_goal point
 
@@ -337,14 +340,14 @@ void map_init(){
   stella.id=1;
   jay_goal.ns="jay_goal_point";
   jay_goal.id=2;
-  stella_goal.ns="stella_goal_point"; 
+  stella_goal.ns="stella_goal_point";
   stella_goal.id=3;
   jay.action=jay_goal.action=stella.action=stella_goal.action=visualization_msgs::Marker::ADD;
   jay.type=jay_goal.type=stella.type=stella_goal.type=visualization_msgs::Marker::CUBE;
-  
-  //jay_goal point cube structure,jay_goal at (10,10)
-  jay_goal.pose.position.x=10;
-  jay_goal.pose.position.y=10;
+
+  //jay_goal point cube structure,jay_goal at (20,20)
+  jay_goal.pose.position.x=20;
+  jay_goal.pose.position.y=20;
   jay_goal.pose.position.z=2;//goal height is 4, set z=-2 prevent the goal cube penetrate map
   jay_goal.pose.orientation.x=0;
   jay_goal.pose.orientation.y=0;
@@ -359,9 +362,9 @@ void map_init(){
   jay_goal.color.a=1.0;
   jay_goal.lifetime=ros::Duration();
 
-  //stella_goal point cube structure,stella_goal at (0,10)
+  //stella_goal point cube structure,stella_goal at (0,20)
   stella_goal.pose.position.x=0;
-  stella_goal.pose.position.y=10;
+  stella_goal.pose.position.y=20;
   stella_goal.pose.position.z=2;//goal height is 4, set z=-2 prevent the goal cube penetrate map
   stella_goal.pose.orientation.x=0;
   stella_goal.pose.orientation.y=0;
@@ -376,8 +379,8 @@ void map_init(){
   stella_goal.color.a=1.0;
   stella_goal.lifetime=ros::Duration();
 
-  //stella point cube structure,stella at (10,0)
-  stella.pose.position.x=10;
+  //stella point cube structure,stella at (20,0)
+  stella.pose.position.x=20;
   stella.pose.position.y=0;
   stella.pose.position.z=0;//goal height is 4, set z=-2 prevent the goal cube penetrate map
   stella.pose.orientation.x=0;
@@ -410,7 +413,54 @@ void map_init(){
   jay.color.a=1.0;
   jay.lifetime=ros::Duration();
 
+  //jay's path initiate
+  jay_path.header.frame_id="/map";
+  jay_path.header.stamp=ros::Time::now();
+  jay_path.ns="jay path";
+  jay_path.action=visualization_msgs::Marker::ADD;
+  jay_path.id=5;
+  jay_path.type=visualization_msgs::Marker::LINE_STRIP;
+  jay_path.scale.x=0.1;
+  jay_path.color.r=1.0f;
+  jay_path.color.g=0.0f;
+  jay_path.color.b=0.0f;
+  jay_path.color.a=1.0;
 
+  //stella's path initiate
+  stella_path.header.frame_id="/map";
+  stella_path.header.stamp=ros::Time::now();
+  stella_path.ns="stella path";
+  stella_path.action=visualization_msgs::Marker::ADD;
+  stella_path.id=6;
+  stella_path.type=visualization_msgs::Marker::LINE_STRIP;
+  stella_path.scale.x=0.1;
+  stella_path.color.r=0.0f;
+  stella_path.color.g=1.0f;
+  stella_path.color.b=0.0f;
+  stella_path.color.a=1.0;
+
+  //obstacle
+  obstacle1.header.frame_id="/map";
+  obstacle1.header.stamp=ros::Time::now();
+  obstacle1.ns="obstacle1";
+  obstacle1.action=visualization_msgs::Marker::ADD;
+  obstacle1.type=visualization_msgs::Marker::CUBE;
+  obstacle1.id=7;
+  obstacle1.pose.position.x=9;
+  obstacle1.pose.position.y=8;
+  obstacle1.pose.position.z=2;//goal height is 4, set z=-2 prevent the goal cube penetrate map
+  obstacle1.pose.orientation.x=0;
+  obstacle1.pose.orientation.y=0;
+  obstacle1.pose.orientation.z=0;
+  obstacle1.pose.orientation.w=0;
+  obstacle1.scale.x=1.0;
+  obstacle1.scale.y=4.0;
+  obstacle1.scale.z=4.0;
+  obstacle1.color.r=1.0f;
+  obstacle1.color.g=0.0f;
+  obstacle1.color.b=1.0f;
+  obstacle1.color.a=1.0;
+  obstacle1.lifetime=ros::Duration();
 }
 int main(int argc, char **argv){
   ros::init(argc,argv,"cooperating_simulator");
@@ -429,18 +479,34 @@ int main(int argc, char **argv){
     marker_pub.publish(stella);
     marker_pub.publish(jay_goal);
     marker_pub.publish(stella_goal);
-    Map m_jay(10,10,9,9,0,0);
-    Map m_stella(10,10,8,8,0,0);
-    m_jay.set_obstacle(3,3);
-    m_jay.set_obstacle(3,4);
-    m_jay.find_path();
-    Node * temp=&m_jay.nodes[m_jay.start_x][m_jay.start_y];
+    marker_pub.publish(obstacle1);
+    Map m_jay(21,21,20,20,0,0);
+    Map m_stella(21,21,21,0,0,21);
+    m_jay.set_obstacle(9,6);
+    m_jay.set_obstacle(9,7);
+    m_jay.set_obstacle(9,8);
+    m_jay.set_obstacle(9,9);
+    m_jay.set_obstacle(9,10);
 
+    m_jay.find_path(0,0);
+    Node * temp=&m_jay.nodes[m_jay.start_x][m_jay.start_y];
+    geometry_msgs::Point p;
+    p.z=0;
   while(ros::ok()){
     jay.pose.position.x=temp->get_x();
     jay.pose.position.y=temp->get_y();
+    p.x=temp->get_x();
+    p.y=temp->get_y();
     temp=temp->get_previous();
+
+    jay_path.points.push_back(p);
     marker_pub.publish(jay);
+    marker_pub.publish(jay_path);
+
+
+
+
+
     r.sleep();
   }
 

@@ -241,19 +241,6 @@ gtest_main/fast:
 .PHONY : gtest_main/fast
 
 #=============================================================================
-# Target rules for targets named cooperating_simulator
-
-# Build rule for target.
-cooperating_simulator: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 cooperating_simulator
-.PHONY : cooperating_simulator
-
-# fast build rule for target.
-cooperating_simulator/fast:
-	$(MAKE) -f using_markers/CMakeFiles/cooperating_simulator.dir/build.make using_markers/CMakeFiles/cooperating_simulator.dir/build
-.PHONY : cooperating_simulator/fast
-
-#=============================================================================
 # Target rules for targets named geometry_msgs_generate_messages_cpp
 
 # Build rule for target.
@@ -291,6 +278,19 @@ geometry_msgs_generate_messages_py: cmake_check_build_system
 geometry_msgs_generate_messages_py/fast:
 	$(MAKE) -f using_markers/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make using_markers/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
 .PHONY : geometry_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named multi_obstacle_3
+
+# Build rule for target.
+multi_obstacle_3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 multi_obstacle_3
+.PHONY : multi_obstacle_3
+
+# fast build rule for target.
+multi_obstacle_3/fast:
+	$(MAKE) -f using_markers/CMakeFiles/multi_obstacle_3.dir/build.make using_markers/CMakeFiles/multi_obstacle_3.dir/build
+.PHONY : multi_obstacle_3/fast
 
 #=============================================================================
 # Target rules for targets named roscpp_generate_messages_cpp
@@ -468,10 +468,10 @@ help:
 	@echo "... tests"
 	@echo "... gtest"
 	@echo "... gtest_main"
-	@echo "... cooperating_simulator"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_lisp"
 	@echo "... geometry_msgs_generate_messages_py"
+	@echo "... multi_obstacle_3"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... roscpp_generate_messages_py"

@@ -1,15 +1,9 @@
-/* Cooperating Robotics via D* --Zejian Zhou, Github: JayZejianZhou
-  I set a 20x20 map,
-   robot scale is 1x1,
-   Jay starts at (0,0), goal is (20,20)
-   Stella starts at (20,0), goal is (0,20)
-*/
-
-#include <ros/ros.h>
-#include <visualization_msgs/Marker.h>
+/* D* Algorithm, maintained by JayZejianZhou
+ * Goal_x and Goal_y in Map should start from 0
+ * map must less than 20*20, left-down is (0,0)
+ */
 #include <iostream>
-
-visualization_msgs::Marker jay,stella, jay_goal, stella_goal;
+//#include <cmath>
 enum State{NEW,OPEN,CLOSE};//state of every nood
 //enum Dirction{NORTH,NORTH_EAST,EAST,EAST_SOUTH,SOUTH,SOUTH_WEST,WEST,WEST_NORTH};
 
@@ -22,8 +16,8 @@ private:
     int y;//position
     bool is_path;//test if it's part of path..debug need
 public:
-    Node():state(NEW),k(0),previous(0),x(0),y(0),is_path(false){}
-    Node(int t_x,int t_y):state(NEW),k(0),previous(0),is_path(false){}
+    Node():state(NEW),k(0),previous(nullptr),x(0),y(0),is_path(false){}
+    Node(int t_x,int t_y):state(NEW),k(0),previous(nullptr),is_path(false){}
     State get_state(){ return state;}
     void set_state(State s){state=s;}
     double get_k(){return k;}
@@ -86,7 +80,7 @@ public:
         if(used>=capacity) grow();
         n->set_state(OPEN);
     }
-    void insert(Node * n,int t_k){//pass the pointer
+    void insert(Node * n,double t_k){//pass the pointer
         //n.get_state()=OPEN;
         data[used]=n;
         n->set_k(t_k);
@@ -126,19 +120,15 @@ class Map{
 private:
     //Map variables
     List open_list;
-public:
     int map_width;
     int map_length;
     int goal_x;
     int goal_y;
-    int start_x;
-    int start_y;
     Node  nodes[10][10];
 public:
     //Map constructor
     //Map(){}//empty instance is not allowed
-    Map(int t_map_width, int t_map_length, int t_goal_x, int t_goal_y, int t_start_x, int t_start_y):
-      start_x(t_start_x),start_y(t_start_y),map_width(t_map_width),map_length(t_map_length),goal_x(t_goal_x),goal_y(t_goal_y){
+    Map(int t_map_width, int t_map_length, int t_goal_x, int t_goal_y):map_width(t_map_width),map_length(t_map_length),goal_x(t_goal_x),goal_y(t_goal_y){
         for(int i=0;i<map_width;i++)
             for(int j=0;j<map_length;j++){
                 nodes[i][j].set_x(i);//initiate nodes array
@@ -281,7 +271,7 @@ public:
 
     void find_path(){
         //1st step: put goal in open_list
-        open_list.insert(&nodes[goal_x][goal_y],0);
+        open_list.insert(&nodes[goal_x][goal_y],0.0);
         //2nd step: put his neighbours in open_list
         for(int i=0;i<8;i++){
             Node * temp=expand(i,open_list.get_data()[0]);
@@ -311,8 +301,25 @@ public:
             nodes[goal_x][goal_y+1].set_k(10);
         open_list.sort();
         while(true){
-            if(process_state()==-1 || nodes[start_x][start_y].get_state()==CLOSE)
+            if(process_state()==-1 || nodes[0][0].get_state()==CLOSE)
                 break;
+
+
+//            //display---------------------------------
+//            for (int i=0;i<map_length;i++){
+//                for(int j=0;j<map_width;j++)
+//                    if(nodes[i][j].get_is_path())
+//                        std::cout<<"0 ";
+//                    else if(nodes[i][j].get_state()==NEW)
+//                        std::cout<<". ";
+//                    else if(nodes[i][j].get_state()==OPEN)
+//                        std::cout<<"* ";
+//                    else
+//                        std::cout<<"# ";
+//                std::cout<<'\n';
+//            }
+//            std::cout<<"\n\n\n";
+
         }
         //find_path--------------------------------------
         Node* temp=&nodes[0][0];
@@ -321,128 +328,38 @@ public:
             temp=temp->get_previous();
             temp->set_is_path(true);
         }
+//        //display---------------------------------
+//        for (int i=0;i<map_length;i++){
+//            for(int j=0;j<map_width;j++)
+//                if(nodes[i][j].get_is_path())
+//                    std::cout<<"0 ";
+//                else if(nodes[i][j].get_k()>=99999)
+//                    std::cout<<"% ";
+//                else if(nodes[i][j].get_state()==NEW)
+//                    std::cout<<". ";
+//                else if(nodes[i][j].get_state()==OPEN)
+//                    std::cout<<"* ";
+//                else
+//                    std::cout<<"# ";
+//            std::cout<<'\n';
+//        }
     }
-    void set_obstacle(int x, int y){
-      nodes[x][y].set_k(99999);
+    void set_obstacle(){
+        nodes[5][4].set_k(99999);
+        nodes[4][4].set_k(99999);//unlimited arc
+        nodes[3][4].set_k(99999);//unlimited arc
+        nodes[2][4].set_k(99999);//unlimited arc
+        nodes[6][4].set_k(99999);
+        nodes[7][4].set_k(99999);
+        nodes[8][4].set_k(99999);
+        nodes[9][4].set_k(99999);
     }
 };
-void map_init(){
-  //make a simulated robot, jay_goal point, stella_goal point
-
-  jay.header.frame_id=stella.header.frame_id=stella_goal.header.frame_id=jay_goal.header.frame_id="/map";
-  jay.header.stamp=stella.header.stamp=jay_goal.header.stamp=stella_goal.header.stamp=ros::Time::now();
-  jay.ns="jay";
-  jay.id=0;
-  stella.ns="stella";
-  stella.id=1;
-  jay_goal.ns="jay_goal_point";
-  jay_goal.id=2;
-  stella_goal.ns="stella_goal_point"; 
-  stella_goal.id=3;
-  jay.action=jay_goal.action=stella.action=stella_goal.action=visualization_msgs::Marker::ADD;
-  jay.type=jay_goal.type=stella.type=stella_goal.type=visualization_msgs::Marker::CUBE;
-  
-  //jay_goal point cube structure,jay_goal at (10,10)
-  jay_goal.pose.position.x=10;
-  jay_goal.pose.position.y=10;
-  jay_goal.pose.position.z=2;//goal height is 4, set z=-2 prevent the goal cube penetrate map
-  jay_goal.pose.orientation.x=0;
-  jay_goal.pose.orientation.y=0;
-  jay_goal.pose.orientation.z=0;
-  jay_goal.pose.orientation.w=0;
-  jay_goal.scale.x=1.0;
-  jay_goal.scale.y=1.0;
-  jay_goal.scale.z=4.0;
-  jay_goal.color.r=1.0f;
-  jay_goal.color.g=0.0f;
-  jay_goal.color.b=0.0f;
-  jay_goal.color.a=1.0;
-  jay_goal.lifetime=ros::Duration();
-
-  //stella_goal point cube structure,stella_goal at (0,10)
-  stella_goal.pose.position.x=0;
-  stella_goal.pose.position.y=10;
-  stella_goal.pose.position.z=2;//goal height is 4, set z=-2 prevent the goal cube penetrate map
-  stella_goal.pose.orientation.x=0;
-  stella_goal.pose.orientation.y=0;
-  stella_goal.pose.orientation.z=0;
-  stella_goal.pose.orientation.w=0;
-  stella_goal.scale.x=1.0;
-  stella_goal.scale.y=1.0;
-  stella_goal.scale.z=4.0;
-  stella_goal.color.r=0.05f;
-  stella_goal.color.g=1.0f;
-  stella_goal.color.b=0.0f;
-  stella_goal.color.a=1.0;
-  stella_goal.lifetime=ros::Duration();
-
-  //stella point cube structure,stella at (10,0)
-  stella.pose.position.x=10;
-  stella.pose.position.y=0;
-  stella.pose.position.z=0;//goal height is 4, set z=-2 prevent the goal cube penetrate map
-  stella.pose.orientation.x=0;
-  stella.pose.orientation.y=0;
-  stella.pose.orientation.z=0;
-  stella.pose.orientation.w=0;
-  stella.scale.x=1.0;
-  stella.scale.y=1.0;
-  stella.scale.z=1.0;
-  stella.color.r=0.0f;
-  stella.color.g=1.0f;
-  stella.color.b=0.0f;
-  stella.color.a=1.0;
-  stella.lifetime=ros::Duration();
-
-  //jay point cube structure,jay at (0,0)
-  jay.pose.position.x=0;
-  jay.pose.position.y=0;
-  jay.pose.position.z=0;//goal height is 4, set z=-2 prevent the goal cube penetrate map
-  jay.pose.orientation.x=0;
-  jay.pose.orientation.y=0;
-  jay.pose.orientation.z=0;
-  jay.pose.orientation.w=0;
-  jay.scale.x=1.0;
-  jay.scale.y=1.0;
-  jay.scale.z=1.0;
-  jay.color.r=1.0f;
-  jay.color.g=0.0f;
-  jay.color.b=0.0f;
-  jay.color.a=1.0;
-  jay.lifetime=ros::Duration();
 
 
-}
-int main(int argc, char **argv){
-  ros::init(argc,argv,"cooperating_simulator");
-  ros::NodeHandle n;
-  ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker",10);
-  ros::Rate r(1);
-
-  map_init();
-    //publish the marker
-    while(marker_pub.getNumSubscribers()<1){
-      if(!ros::ok())  return 0;
-      ROS_WARN_ONCE("Please create a subscriber to the maker");
-      sleep(1);
-    }
-    marker_pub.publish(jay);
-    marker_pub.publish(stella);
-    marker_pub.publish(jay_goal);
-    marker_pub.publish(stella_goal);
-    Map m_jay(10,10,9,9,0,0);
-    Map m_stella(10,10,8,8,0,0);
-    m_jay.set_obstacle(3,3);
-    m_jay.set_obstacle(3,4);
-    m_jay.find_path();
-    Node * temp=&m_jay.nodes[m_jay.start_x][m_jay.start_y];
-
-  while(ros::ok()){
-    jay.pose.position.x=temp->get_x();
-    jay.pose.position.y=temp->get_y();
-    temp=temp->get_previous();
-    marker_pub.publish(jay);
-    r.sleep();
-  }
-
-
-}
+//int main(){
+//    Map a(10,10,8,8);
+//    a.set_obstacle();
+//    a.find_path();
+//    return 0;
+//}
