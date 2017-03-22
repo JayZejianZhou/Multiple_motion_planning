@@ -603,12 +603,12 @@ int main(int argc, char **argv){
     tom.pose.position.y=temp_tom->get_y();
     p_tom.x=temp_tom->get_x();
     p_tom.y=temp_tom->get_y();
-    if(p_tom.x==6 && p_tom.y==2 &&count<10){
-      fake_go=true;
-      count++;
-      if(count==3)
-        fake_go=false;
-    }
+//    if(p_tom.x==6 && p_tom.y==2 &&count<10){
+//      fake_go=true;
+//      count++;
+//      if(count==3)
+//        fake_go=false;
+//    }
     if(!fake_go){
     temp_tom=temp_tom->get_previous();
     }

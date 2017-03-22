@@ -703,28 +703,28 @@ void map_init(){
   tom_path.lifetime=ros::Duration();
 
 
-  //obstacle
-  obstacle1.header.frame_id="/map";
-  obstacle1.header.stamp=ros::Time::now();
-  obstacle1.ns="obstacle1";
-  obstacle1.action=visualization_msgs::Marker::ADD;
-  obstacle1.type=visualization_msgs::Marker::CUBE;
-  obstacle1.id=7;
-  obstacle1.pose.position.x=2;
-  obstacle1.pose.position.y=4;
-  obstacle1.pose.position.z=0;//goal height is 4, set z=-2 prevent the goal cube penetrate map
-  obstacle1.pose.orientation.x=0;
-  obstacle1.pose.orientation.y=0;
-  obstacle1.pose.orientation.z=0;
-  obstacle1.pose.orientation.w=0;
-  obstacle1.scale.x=4.0;
-  obstacle1.scale.y=4.0;
-  obstacle1.scale.z=16.0;
-  obstacle1.color.r=1.0f;
-  obstacle1.color.g=0.0f;
-  obstacle1.color.b=1.0f;
-  obstacle1.color.a=1.0;
-  obstacle1.lifetime=ros::Duration();
+//  //obstacle
+//  obstacle1.header.frame_id="/map";
+//  obstacle1.header.stamp=ros::Time::now();
+//  obstacle1.ns="obstacle1";
+//  obstacle1.action=visualization_msgs::Marker::ADD;
+//  obstacle1.type=visualization_msgs::Marker::CUBE;
+//  obstacle1.id=7;
+//  obstacle1.pose.position.x=2;
+//  obstacle1.pose.position.y=4;
+//  obstacle1.pose.position.z=0;//goal height is 4, set z=-2 prevent the goal cube penetrate map
+//  obstacle1.pose.orientation.x=0;
+//  obstacle1.pose.orientation.y=0;
+//  obstacle1.pose.orientation.z=0;
+//  obstacle1.pose.orientation.w=0;
+//  obstacle1.scale.x=4.0;
+//  obstacle1.scale.y=4.0;
+//  obstacle1.scale.z=16.0;
+//  obstacle1.color.r=1.0f;
+//  obstacle1.color.g=0.0f;
+//  obstacle1.color.b=1.0f;
+//  obstacle1.color.a=1.0;
+//  obstacle1.lifetime=ros::Duration();
 
   obstacle2.header.frame_id="/map";
   obstacle2.header.stamp=ros::Time::now();
@@ -748,28 +748,28 @@ void map_init(){
   obstacle2.color.a=1.0;
   obstacle2.lifetime=ros::Duration();
 
-//  //obstacle test
-//  obstacle1.header.frame_id="/map";
-//  obstacle1.header.stamp=ros::Time::now();
-//  obstacle1.ns="obstacle1";
-//  obstacle1.action=visualization_msgs::Marker::ADD;
-//  obstacle1.type=visualization_msgs::Marker::CUBE;
-//  obstacle1.id=7;
-//  obstacle1.pose.position.x=2;
-//  obstacle1.pose.position.y=4;
-//  obstacle1.pose.position.z=0;//goal height is 4, set z=-2 prevent the goal cube penetrate map
-//  obstacle1.pose.orientation.x=0;
-//  obstacle1.pose.orientation.y=0;
-//  obstacle1.pose.orientation.z=0;
-//  obstacle1.pose.orientation.w=0;
-//  obstacle1.scale.x=1.0;
-//  obstacle1.scale.y=1.0;
-//  obstacle1.scale.z=18.0;
-//  obstacle1.color.r=1.0f;
-//  obstacle1.color.g=0.0f;
-//  obstacle1.color.b=1.0f;
-//  obstacle1.color.a=1.0;
-//  obstacle1.lifetime=ros::Duration();
+  //obstacle test
+  obstacle1.header.frame_id="/map";
+  obstacle1.header.stamp=ros::Time::now();
+  obstacle1.ns="obstacle1";
+  obstacle1.action=visualization_msgs::Marker::ADD;
+  obstacle1.type=visualization_msgs::Marker::CUBE;
+  obstacle1.id=7;
+  obstacle1.pose.position.x=2;
+  obstacle1.pose.position.y=4;
+  obstacle1.pose.position.z=0;//goal height is 4, set z=-2 prevent the goal cube penetrate map
+  obstacle1.pose.orientation.x=0;
+  obstacle1.pose.orientation.y=0;
+  obstacle1.pose.orientation.z=0;
+  obstacle1.pose.orientation.w=0;
+  obstacle1.scale.x=1.0;
+  obstacle1.scale.y=1.0;
+  obstacle1.scale.z=18.0;
+  obstacle1.color.r=1.0f;
+  obstacle1.color.g=0.0f;
+  obstacle1.color.b=1.0f;
+  obstacle1.color.a=1.0;
+  obstacle1.lifetime=ros::Duration();
 
 
 }
@@ -841,16 +841,16 @@ int main(int argc, char **argv){
     ROS_WARN_ONCE("Please create a subscriber to the maker");
     sleep(1);
   }
-  marker_pub.publish(jay);
-  marker_pub.publish(stella);
-  marker_pub.publish(tom);
+//  marker_pub.publish(jay);
+//  marker_pub.publish(stella);
+//  marker_pub.publish(tom);
 
-  marker_pub.publish(jay_goal);
-  marker_pub.publish(stella_goal);
-  marker_pub.publish(tom_goal);
+//  marker_pub.publish(jay_goal);
+//  marker_pub.publish(stella_goal);
+//  marker_pub.publish(tom_goal);
 
   marker_pub.publish(obstacle1);
-  marker_pub.publish(obstacle2);
+//  marker_pub.publish(obstacle2);
 
   //fake CD_1
   //marker_pub.publish(fake_CD1);
@@ -860,7 +860,7 @@ int main(int argc, char **argv){
   Map m_stella(10,10,10,0,0,9,9,9,0);
 
   m_jay.set_obstacle(obstacle1);
-  m_jay.set_obstacle(obstacle2);
+//  m_jay.set_obstacle(obstacle2);
 
   m_tom.set_obstacle(obstacle1);
   m_tom.set_obstacle(obstacle2);
@@ -872,13 +872,13 @@ int main(int argc, char **argv){
   Node * temp=&m_jay.nodes[m_jay.start_x][m_jay.start_y][m_jay.start_z];
   geometry_msgs::Point p;
 
-  m_stella.find_path();
-  Node * temp_stella=&m_stella.nodes[m_stella.start_x][m_stella.start_y][m_stella.start_z];
-  geometry_msgs::Point p_stella;
+//  m_stella.find_path();
+//  Node * temp_stella=&m_stella.nodes[m_stella.start_x][m_stella.start_y][m_stella.start_z];
+//  geometry_msgs::Point p_stella;
 
-  m_tom.find_path();
-  Node * temp_tom=&m_tom.nodes[m_tom.start_x][m_tom.start_y][m_tom.start_z];
-  geometry_msgs::Point p_tom;
+//  m_tom.find_path();
+//  Node * temp_tom=&m_tom.nodes[m_tom.start_x][m_tom.start_y][m_tom.start_z];
+//  geometry_msgs::Point p_tom;
 
   //    Node obstacle_temp;
   //    List collision_state;
@@ -904,36 +904,36 @@ int main(int argc, char **argv){
 
 
   while(ros::ok()){
-//    Jay's path show
-//        if(collision_flag){
-//          ROS_WARN_ONCE("got collision");
-//          if(temp!=&m_jay.nodes[m_jay.goal_x][m_jay.goal_y] && temp_CD->get_previous()->get_x()-temp_CD->get_x() !=0){//move robot1?
-//            jay.pose.position.x=temp->get_x();
-//            jay.pose.position.y=temp->get_y();
-//            p.x=temp->get_x();
-//            p.y=temp->get_y();
-//            temp=temp->get_previous();
+    //Jay's path show
+    //    if(collision_flag){
+    //      ROS_WARN_ONCE("got collision");
+    //      if(temp!=&m_jay.nodes[m_jay.goal_x][m_jay.goal_y] && temp_CD->get_previous()->get_x()-temp_CD->get_x() !=0){//move robot1?
+    //        jay.pose.position.x=temp->get_x();
+    //        jay.pose.position.y=temp->get_y();
+    //        p.x=temp->get_x();
+    //        p.y=temp->get_y();
+    //        temp=temp->get_previous();
 
-//            jay_path.points.push_back(p);
-//            marker_pub.publish(jay);
-//            marker_pub.publish(jay_path);
-//          }
-//          if(temp_stella!=&m_stella.nodes[m_stella.goal_x][m_stella.goal_y] && temp_CD->get_previous()->get_y()-temp_CD->get_y() !=0){//move robot2?
-//            stella.pose.position.x=temp_stella->get_x();
-//            stella.pose.position.y=temp_stella->get_y();
-//            p_stella.x=temp_stella->get_x();
-//            p_stella.y=temp_stella->get_y();
-//            temp_stella=temp_stella->get_previous();
+    //        jay_path.points.push_back(p);
+    //        marker_pub.publish(jay);
+    //        marker_pub.publish(jay_path);
+    //      }
+    //      if(temp_stella!=&m_stella.nodes[m_stella.goal_x][m_stella.goal_y] && temp_CD->get_previous()->get_y()-temp_CD->get_y() !=0){//move robot2?
+    //        stella.pose.position.x=temp_stella->get_x();
+    //        stella.pose.position.y=temp_stella->get_y();
+    //        p_stella.x=temp_stella->get_x();
+    //        p_stella.y=temp_stella->get_y();
+    //        temp_stella=temp_stella->get_previous();
 
-//            stella_path.points.push_back(p_stella);
-//            marker_pub.publish(stella);
-//            marker_pub.publish(stella_path);
-//          }
-//          temp_CD=temp_CD->get_previous();
-//          if(temp_CD==&m_CD.nodes[m_CD.goal_x][m_CD.goal_y])
-//            collision_flag==false;//collision check done
-//        }
-//        else{
+    //        stella_path.points.push_back(p_stella);
+    //        marker_pub.publish(stella);
+    //        marker_pub.publish(stella_path);
+    //      }
+    //      temp_CD=temp_CD->get_previous();
+    //      if(temp_CD==&m_CD.nodes[m_CD.goal_x][m_CD.goal_y])
+    //        collision_flag==false;//collision check done
+    //    }
+    //    else{
     if(temp!=&m_jay.nodes[m_jay.goal_x][m_jay.goal_y][m_jay.goal_z]){
       jay.pose.position.x=temp->get_x();
       jay.pose.position.y=temp->get_y();
@@ -947,32 +947,32 @@ int main(int argc, char **argv){
       marker_pub.publish(jay);
       marker_pub.publish(jay_path);
     }
-    if(temp_stella!=&m_stella.nodes[m_stella.goal_x][m_stella.goal_y][m_stella.goal_z]){
-      stella.pose.position.x=temp_stella->get_x();
-      stella.pose.position.y=temp_stella->get_y();
-      stella.pose.position.z=temp_stella->get_z();
-      p_stella.x=temp_stella->get_x();
-      p_stella.y=temp_stella->get_y();
-      p_stella.z=temp_stella->get_z();
-      temp_stella=temp_stella->get_previous();
+//    if(temp_stella!=&m_stella.nodes[m_stella.goal_x][m_stella.goal_y][m_stella.goal_z]){
+//      stella.pose.position.x=temp_stella->get_x();
+//      stella.pose.position.y=temp_stella->get_y();
+//      stella.pose.position.z=temp_stella->get_z();
+//      p_stella.x=temp_stella->get_x();
+//      p_stella.y=temp_stella->get_y();
+//      p_stella.z=temp_stella->get_z();
+//      temp_stella=temp_stella->get_previous();
 
-      stella_path.points.push_back(p_stella);
-      marker_pub.publish(stella);
-      marker_pub.publish(stella_path);
-    }
-    if(temp_tom!=&m_tom.nodes[m_tom.goal_x][m_tom.goal_y][m_tom.goal_z]){
-      tom.pose.position.x=temp_tom->get_x();
-      tom.pose.position.y=temp_tom->get_y();
-      tom.pose.position.z=temp_tom->get_z();
-      p_tom.x=temp_tom->get_x();
-      p_tom.y=temp_tom->get_y();
-      p_tom.z=temp_tom->get_z();
-      temp_tom=temp_tom->get_previous();
+//      stella_path.points.push_back(p_stella);
+//      marker_pub.publish(stella);
+//      marker_pub.publish(stella_path);
+//    }
+//    if(temp_tom!=&m_tom.nodes[m_tom.goal_x][m_tom.goal_y][m_tom.goal_z]){
+//      tom.pose.position.x=temp_tom->get_x();
+//      tom.pose.position.y=temp_tom->get_y();
+//      tom.pose.position.z=temp_tom->get_z();
+//      p_tom.x=temp_tom->get_x();
+//      p_tom.y=temp_tom->get_y();
+//      p_tom.z=temp_tom->get_z();
+//      temp_tom=temp_tom->get_previous();
 
-      tom_path.points.push_back(p_tom);
-      marker_pub.publish(tom);
-      marker_pub.publish(tom_path);
-    }
+//      tom_path.points.push_back(p_tom);
+//      marker_pub.publish(tom);
+//      marker_pub.publish(tom_path);
+//    }
     r.sleep();
   }
 }
