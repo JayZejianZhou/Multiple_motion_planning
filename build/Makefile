@@ -241,17 +241,17 @@ gtest_main/fast:
 .PHONY : gtest_main/fast
 
 #=============================================================================
-# Target rules for targets named 3d_d_star
+# Target rules for targets named 3d_d_fake_deal
 
 # Build rule for target.
-3d_d_star: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 3d_d_star
-.PHONY : 3d_d_star
+3d_d_fake_deal: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 3d_d_fake_deal
+.PHONY : 3d_d_fake_deal
 
 # fast build rule for target.
-3d_d_star/fast:
-	$(MAKE) -f using_markers/CMakeFiles/3d_d_star.dir/build.make using_markers/CMakeFiles/3d_d_star.dir/build
-.PHONY : 3d_d_star/fast
+3d_d_fake_deal/fast:
+	$(MAKE) -f using_markers/CMakeFiles/3d_d_fake_deal.dir/build.make using_markers/CMakeFiles/3d_d_fake_deal.dir/build
+.PHONY : 3d_d_fake_deal/fast
 
 #=============================================================================
 # Target rules for targets named geometry_msgs_generate_messages_cpp
@@ -468,7 +468,7 @@ help:
 	@echo "... tests"
 	@echo "... gtest"
 	@echo "... gtest_main"
-	@echo "... 3d_d_star"
+	@echo "... 3d_d_fake_deal"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_lisp"
 	@echo "... geometry_msgs_generate_messages_py"

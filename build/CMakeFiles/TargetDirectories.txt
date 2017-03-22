@@ -1,4 +1,4 @@
-/home/zejian/catkin_ws/build/using_markers/CMakeFiles/3d_d_star.dir
+/home/zejian/catkin_ws/build/using_markers/CMakeFiles/3d_d_fake_deal.dir
 /home/zejian/catkin_ws/build/CMakeFiles/clean_test_results.dir
 /home/zejian/catkin_ws/build/CMakeFiles/download_extra_data.dir
 /home/zejian/catkin_ws/build/CMakeFiles/doxygen.dir

@@ -212,6 +212,9 @@ include_directories(
 #target_link_libraries(report_single_dynamic_D ${catkin_LIBRARIES})
 #add_executable(multi_obstacle_free src/multi_obstacle_free.cpp)
 #target_link_libraries(multi_obstacle_free ${catkin_LIBRARIES})
-add_executable(3d_d_star src/3d_d_star.cpp)
-target_link_libraries(3d_d_star ${catkin_LIBRARIES})
-
+#add_executable(3d_obstacle src/3d_obstacle.cpp)
+#target_link_libraries(3d_obstacle ${catkin_LIBRARIES})
+#add_executable(3d_obstacle_multi src/3d_obstacle_multi.cpp)
+#target_link_libraries(3d_obstacle_multi ${catkin_LIBRARIES})
+add_executable(3d_d_fake_deal src/3d_d_fake_deal.cpp)
+target_link_libraries(3d_d_fake_deal ${catkin_LIBRARIES})

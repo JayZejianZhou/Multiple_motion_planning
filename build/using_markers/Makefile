@@ -150,18 +150,18 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-using_markers/CMakeFiles/3d_d_star.dir/rule:
-	cd /home/zejian/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 using_markers/CMakeFiles/3d_d_star.dir/rule
-.PHONY : using_markers/CMakeFiles/3d_d_star.dir/rule
+using_markers/CMakeFiles/3d_d_fake_deal.dir/rule:
+	cd /home/zejian/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 using_markers/CMakeFiles/3d_d_fake_deal.dir/rule
+.PHONY : using_markers/CMakeFiles/3d_d_fake_deal.dir/rule
 
 # Convenience name for target.
-3d_d_star: using_markers/CMakeFiles/3d_d_star.dir/rule
-.PHONY : 3d_d_star
+3d_d_fake_deal: using_markers/CMakeFiles/3d_d_fake_deal.dir/rule
+.PHONY : 3d_d_fake_deal
 
 # fast build rule for target.
-3d_d_star/fast:
-	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/3d_d_star.dir/build.make using_markers/CMakeFiles/3d_d_star.dir/build
-.PHONY : 3d_d_star/fast
+3d_d_fake_deal/fast:
+	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/3d_d_fake_deal.dir/build.make using_markers/CMakeFiles/3d_d_fake_deal.dir/build
+.PHONY : 3d_d_fake_deal/fast
 
 # Convenience name for target.
 using_markers/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
@@ -373,29 +373,29 @@ visualization_msgs_generate_messages_py/fast:
 	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/visualization_msgs_generate_messages_py.dir/build.make using_markers/CMakeFiles/visualization_msgs_generate_messages_py.dir/build
 .PHONY : visualization_msgs_generate_messages_py/fast
 
-src/3d_d_star.o: src/3d_d_star.cpp.o
-.PHONY : src/3d_d_star.o
+src/3d_d_fake_deal.o: src/3d_d_fake_deal.cpp.o
+.PHONY : src/3d_d_fake_deal.o
 
 # target to build an object file
-src/3d_d_star.cpp.o:
-	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/3d_d_star.dir/build.make using_markers/CMakeFiles/3d_d_star.dir/src/3d_d_star.cpp.o
-.PHONY : src/3d_d_star.cpp.o
+src/3d_d_fake_deal.cpp.o:
+	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/3d_d_fake_deal.dir/build.make using_markers/CMakeFiles/3d_d_fake_deal.dir/src/3d_d_fake_deal.cpp.o
+.PHONY : src/3d_d_fake_deal.cpp.o
 
-src/3d_d_star.i: src/3d_d_star.cpp.i
-.PHONY : src/3d_d_star.i
+src/3d_d_fake_deal.i: src/3d_d_fake_deal.cpp.i
+.PHONY : src/3d_d_fake_deal.i
 
 # target to preprocess a source file
-src/3d_d_star.cpp.i:
-	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/3d_d_star.dir/build.make using_markers/CMakeFiles/3d_d_star.dir/src/3d_d_star.cpp.i
-.PHONY : src/3d_d_star.cpp.i
+src/3d_d_fake_deal.cpp.i:
+	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/3d_d_fake_deal.dir/build.make using_markers/CMakeFiles/3d_d_fake_deal.dir/src/3d_d_fake_deal.cpp.i
+.PHONY : src/3d_d_fake_deal.cpp.i
 
-src/3d_d_star.s: src/3d_d_star.cpp.s
-.PHONY : src/3d_d_star.s
+src/3d_d_fake_deal.s: src/3d_d_fake_deal.cpp.s
+.PHONY : src/3d_d_fake_deal.s
 
 # target to generate assembly for a file
-src/3d_d_star.cpp.s:
-	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/3d_d_star.dir/build.make using_markers/CMakeFiles/3d_d_star.dir/src/3d_d_star.cpp.s
-.PHONY : src/3d_d_star.cpp.s
+src/3d_d_fake_deal.cpp.s:
+	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/3d_d_fake_deal.dir/build.make using_markers/CMakeFiles/3d_d_fake_deal.dir/src/3d_d_fake_deal.cpp.s
+.PHONY : src/3d_d_fake_deal.cpp.s
 
 # Help Target
 help:
@@ -403,7 +403,7 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... 3d_d_star"
+	@echo "... 3d_d_fake_deal"
 	@echo "... edit_cache"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_lisp"
@@ -426,9 +426,9 @@ help:
 	@echo "... visualization_msgs_generate_messages_cpp"
 	@echo "... visualization_msgs_generate_messages_lisp"
 	@echo "... visualization_msgs_generate_messages_py"
-	@echo "... src/3d_d_star.o"
-	@echo "... src/3d_d_star.i"
-	@echo "... src/3d_d_star.s"
+	@echo "... src/3d_d_fake_deal.o"
+	@echo "... src/3d_d_fake_deal.i"
+	@echo "... src/3d_d_fake_deal.s"
 .PHONY : help
 
 
