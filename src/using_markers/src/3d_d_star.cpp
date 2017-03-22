@@ -389,7 +389,7 @@ public:
         //1st step: put goal in open_list
         open_list.insert(&nodes[goal_x][goal_y][goal_z],0.0);
         //2nd step: put his neighbours in open_list
-        for(int i=0;i<8;i++){
+        for(int i=0;i<26;i++){
             Node * temp=expand(i,open_list.get_data()[0]);
             if(temp!=&nodes[goal_x][goal_y][goal_z]){
                 temp->set_previous(&nodes[goal_x][goal_y][goal_z]);
@@ -441,7 +441,7 @@ public:
           nodes[goal_x][goal_y-1][goal_z-1].set_k(14);
         if(goal_x+1<map_length && goal_y+1<map_width && goal_z-1>=0)
           nodes[goal_x+1][goal_y+1][goal_z-1].set_k(17);
-        if(goal_x-1<=0 && goal_y-1>=0 && goal_z-1>=0)
+        if(goal_x-1>=0 && goal_y-1>=0 && goal_z-1>=0)
           nodes[goal_x-1][goal_y-1][goal_z-1].set_k(17);
         if(goal_x+1<map_length && goal_y-1>=0 && goal_z-1>=0)
           nodes[goal_x+1][goal_y-1][goal_z-1].set_k(17);
@@ -517,7 +517,7 @@ public:
 
 
 int main(){
-    Map a(12,12,12,9,8,9);
+    Map a(12,12,12,9,9,9);
     a.set_obstacle();
     a.find_path();
     return 0;
