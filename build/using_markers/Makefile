@@ -150,6 +150,20 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+using_markers/CMakeFiles/3d_d_star.dir/rule:
+	cd /home/zejian/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 using_markers/CMakeFiles/3d_d_star.dir/rule
+.PHONY : using_markers/CMakeFiles/3d_d_star.dir/rule
+
+# Convenience name for target.
+3d_d_star: using_markers/CMakeFiles/3d_d_star.dir/rule
+.PHONY : 3d_d_star
+
+# fast build rule for target.
+3d_d_star/fast:
+	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/3d_d_star.dir/build.make using_markers/CMakeFiles/3d_d_star.dir/build
+.PHONY : 3d_d_star/fast
+
+# Convenience name for target.
 using_markers/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
 	cd /home/zejian/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 using_markers/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
 .PHONY : using_markers/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
@@ -190,20 +204,6 @@ geometry_msgs_generate_messages_py: using_markers/CMakeFiles/geometry_msgs_gener
 geometry_msgs_generate_messages_py/fast:
 	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make using_markers/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
 .PHONY : geometry_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-using_markers/CMakeFiles/multi_obstacle_3.dir/rule:
-	cd /home/zejian/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 using_markers/CMakeFiles/multi_obstacle_3.dir/rule
-.PHONY : using_markers/CMakeFiles/multi_obstacle_3.dir/rule
-
-# Convenience name for target.
-multi_obstacle_3: using_markers/CMakeFiles/multi_obstacle_3.dir/rule
-.PHONY : multi_obstacle_3
-
-# fast build rule for target.
-multi_obstacle_3/fast:
-	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/multi_obstacle_3.dir/build.make using_markers/CMakeFiles/multi_obstacle_3.dir/build
-.PHONY : multi_obstacle_3/fast
 
 # Convenience name for target.
 using_markers/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
@@ -373,29 +373,29 @@ visualization_msgs_generate_messages_py/fast:
 	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/visualization_msgs_generate_messages_py.dir/build.make using_markers/CMakeFiles/visualization_msgs_generate_messages_py.dir/build
 .PHONY : visualization_msgs_generate_messages_py/fast
 
-src/multi_obstacle_3.o: src/multi_obstacle_3.cpp.o
-.PHONY : src/multi_obstacle_3.o
+src/3d_d_star.o: src/3d_d_star.cpp.o
+.PHONY : src/3d_d_star.o
 
 # target to build an object file
-src/multi_obstacle_3.cpp.o:
-	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/multi_obstacle_3.dir/build.make using_markers/CMakeFiles/multi_obstacle_3.dir/src/multi_obstacle_3.cpp.o
-.PHONY : src/multi_obstacle_3.cpp.o
+src/3d_d_star.cpp.o:
+	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/3d_d_star.dir/build.make using_markers/CMakeFiles/3d_d_star.dir/src/3d_d_star.cpp.o
+.PHONY : src/3d_d_star.cpp.o
 
-src/multi_obstacle_3.i: src/multi_obstacle_3.cpp.i
-.PHONY : src/multi_obstacle_3.i
+src/3d_d_star.i: src/3d_d_star.cpp.i
+.PHONY : src/3d_d_star.i
 
 # target to preprocess a source file
-src/multi_obstacle_3.cpp.i:
-	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/multi_obstacle_3.dir/build.make using_markers/CMakeFiles/multi_obstacle_3.dir/src/multi_obstacle_3.cpp.i
-.PHONY : src/multi_obstacle_3.cpp.i
+src/3d_d_star.cpp.i:
+	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/3d_d_star.dir/build.make using_markers/CMakeFiles/3d_d_star.dir/src/3d_d_star.cpp.i
+.PHONY : src/3d_d_star.cpp.i
 
-src/multi_obstacle_3.s: src/multi_obstacle_3.cpp.s
-.PHONY : src/multi_obstacle_3.s
+src/3d_d_star.s: src/3d_d_star.cpp.s
+.PHONY : src/3d_d_star.s
 
 # target to generate assembly for a file
-src/multi_obstacle_3.cpp.s:
-	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/multi_obstacle_3.dir/build.make using_markers/CMakeFiles/multi_obstacle_3.dir/src/multi_obstacle_3.cpp.s
-.PHONY : src/multi_obstacle_3.cpp.s
+src/3d_d_star.cpp.s:
+	cd /home/zejian/catkin_ws/build && $(MAKE) -f using_markers/CMakeFiles/3d_d_star.dir/build.make using_markers/CMakeFiles/3d_d_star.dir/src/3d_d_star.cpp.s
+.PHONY : src/3d_d_star.cpp.s
 
 # Help Target
 help:
@@ -403,6 +403,7 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... 3d_d_star"
 	@echo "... edit_cache"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_lisp"
@@ -411,7 +412,6 @@ help:
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... list_install_components"
-	@echo "... multi_obstacle_3"
 	@echo "... rebuild_cache"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_lisp"
@@ -426,9 +426,9 @@ help:
 	@echo "... visualization_msgs_generate_messages_cpp"
 	@echo "... visualization_msgs_generate_messages_lisp"
 	@echo "... visualization_msgs_generate_messages_py"
-	@echo "... src/multi_obstacle_3.o"
-	@echo "... src/multi_obstacle_3.i"
-	@echo "... src/multi_obstacle_3.s"
+	@echo "... src/3d_d_star.o"
+	@echo "... src/3d_d_star.i"
+	@echo "... src/3d_d_star.s"
 .PHONY : help
 
 

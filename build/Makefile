@@ -241,6 +241,19 @@ gtest_main/fast:
 .PHONY : gtest_main/fast
 
 #=============================================================================
+# Target rules for targets named 3d_d_star
+
+# Build rule for target.
+3d_d_star: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 3d_d_star
+.PHONY : 3d_d_star
+
+# fast build rule for target.
+3d_d_star/fast:
+	$(MAKE) -f using_markers/CMakeFiles/3d_d_star.dir/build.make using_markers/CMakeFiles/3d_d_star.dir/build
+.PHONY : 3d_d_star/fast
+
+#=============================================================================
 # Target rules for targets named geometry_msgs_generate_messages_cpp
 
 # Build rule for target.
@@ -278,19 +291,6 @@ geometry_msgs_generate_messages_py: cmake_check_build_system
 geometry_msgs_generate_messages_py/fast:
 	$(MAKE) -f using_markers/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make using_markers/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
 .PHONY : geometry_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named multi_obstacle_3
-
-# Build rule for target.
-multi_obstacle_3: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 multi_obstacle_3
-.PHONY : multi_obstacle_3
-
-# fast build rule for target.
-multi_obstacle_3/fast:
-	$(MAKE) -f using_markers/CMakeFiles/multi_obstacle_3.dir/build.make using_markers/CMakeFiles/multi_obstacle_3.dir/build
-.PHONY : multi_obstacle_3/fast
 
 #=============================================================================
 # Target rules for targets named roscpp_generate_messages_cpp
@@ -468,10 +468,10 @@ help:
 	@echo "... tests"
 	@echo "... gtest"
 	@echo "... gtest_main"
+	@echo "... 3d_d_star"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... geometry_msgs_generate_messages_lisp"
 	@echo "... geometry_msgs_generate_messages_py"
-	@echo "... multi_obstacle_3"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... roscpp_generate_messages_py"

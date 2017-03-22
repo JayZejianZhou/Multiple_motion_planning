@@ -212,6 +212,6 @@ include_directories(
 #target_link_libraries(report_single_dynamic_D ${catkin_LIBRARIES})
 #add_executable(multi_obstacle_free src/multi_obstacle_free.cpp)
 #target_link_libraries(multi_obstacle_free ${catkin_LIBRARIES})
-add_executable(multi_obstacle_3 src/multi_obstacle_3.cpp)
-target_link_libraries(multi_obstacle_3 ${catkin_LIBRARIES})
+add_executable(3d_d_star src/3d_d_star.cpp)
+target_link_libraries(3d_d_star ${catkin_LIBRARIES})
 
